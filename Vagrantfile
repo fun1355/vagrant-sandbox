@@ -290,6 +290,8 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "1024"
   end
+  
+  config.disksize.size = '100GB'
 
   # Nodes configuration
   systems.each do |system, system_data|
