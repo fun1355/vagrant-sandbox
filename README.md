@@ -55,3 +55,6 @@ Usage
  * Start a virtual machine:
  
         $ vagrant up centos
+ * resize a virtual machine
+        $ vagrant plugin install vagrant-disksize
+        $ add "config.disksize.size = '100GB'" to Vagrantfile
