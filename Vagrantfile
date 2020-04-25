@@ -116,7 +116,16 @@ systems = {
     :default_arch => '64',
     :versions => {
       'latest' => {
-        '64' => 'cmiles/gentoo-amd64-minimal'
+        '64' => 'generic/gentoo'
+      },
+    }
+  },
+  :funtoo => {
+    :default_version => 'latest',
+    :default_arch => '64',
+    :versions => {
+      'latest' => {
+      	'64' => 'foobarlab/funtoo-stage3'
       },
     }
   },
@@ -249,6 +258,15 @@ systems = {
       },
       '2012-standard' => {
         '64' => 'opentable/win-2012-standard-amd64-nocm'
+      }
+    }
+  },
+  :kali => {
+    :default_version => 'rolling',
+    :default_arch => '64',
+    :versions => {
+      'rolling' => {
+        '64' => 'kalilinux/rolling'
       }
     }
   },
