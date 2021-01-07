@@ -112,8 +112,8 @@ systems = {
     }
   },
   :gentoo => {
-    :default_version => 'latest',
-    :default_arch => '64',
+    :default_version => 'prcapttnadc',
+    :default_arch => 'v1.0.0',
     :versions => {
       'latest' => {
         '64' => 'generic/gentoo'
@@ -288,6 +288,15 @@ systems = {
       },
       'sierra' => {
         '64' => 'jhcook/macos-sierra'
+      }
+    }
+  },
+  :kali => {
+    :default_version => 'acortespi20',
+    :default_arch => 'v1.0',
+    :versions => {
+      'acortespi20' => {
+        'v1.0' => 'acortespi20/kali'
       }
     }
   },
