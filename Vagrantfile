@@ -200,7 +200,7 @@ systems = {
     }
   },
   :windows => {
-    :default_version => '2012-standard',
+    :default_version => 'win10',
     :default_arch => '64',
     :versions => {
       '7-enterprise' => {
@@ -258,15 +258,21 @@ systems = {
       },
       '2012-standard' => {
         '64' => 'opentable/win-2012-standard-amd64-nocm'
+      },
+      'win10' => {
+      	'64' => 'cbaiamendes/WIN10'
       }
     }
   },
   :kali => {
-    :default_version => 'rolling',
+    :default_version => 'kali-linux_amd64',
     :default_arch => '64',
     :versions => {
       'rolling' => {
         '64' => 'kalilinux/rolling'
+      },
+      'kali-linux_amd64' => {
+        '64' => 'elrey741/kali-linux_amd64'
       }
     }
   },
@@ -306,13 +312,21 @@ Vagrant.configure("2") do |config|
 
   # VirtualBox configuration
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = "1024"
+  #  vb.customize ["modifyvm", :id, "--ioapic", "on"]
+    vb.cpus = 8
+    vb.memory = "10240"
   end
   
-  config.disksize.size = '100GB'
+  config.disksize.size = '250GB'
 
   # Nodes configuration
   systems.each do |system, system_data|
+
+#    system "gentoo" do |s|
+#      config.vm.provider.memory = "4096"
+#      config.vm.provider.cpus = 6
+#    end
+
     config.vm.define system, autostart: false do |node|
       node.vm.box = system_data[:versions][system_data[:default_version]][system_data[:default_arch]]
     end
